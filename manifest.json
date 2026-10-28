@@ -1,0 +1,541 @@
+{
+   "action": {
+      "default_icon": "assets/images/icon.png"
+   },
+   "background": {
+      "service_worker": "background.js"
+   },
+   "content_scripts": [ {
+      "exclude_matches": [ "https://app.bidhub.tech/*" ],
+      "js": [ "panel-event-shield.js" ],
+      "matches": [ "\u003Call_urls>" ],
+      "run_at": "document_start",
+      "world": "MAIN"
+   }, {
+      "exclude_matches": [ "https://app.bidhub.tech/*" ],
+      "js": [ "panel.js", "google-schema.js" ],
+      "matches": [ "\u003Call_urls>" ]
+   }, {
+      "all_frames": true,
+      "exclude_matches": [ "https://app.bidhub.tech/*" ],
+      "js": [ "bid-counter.js", "snapshot-md.js", "screenshot.js", "text-selection.js" ],
+      "matches": [ "\u003Call_urls>" ],
+      "run_at": "document_end"
+   }, {
+      "all_frames": true,
+      "exclude_matches": [ "https://app.bidhub.tech/*" ],
+      "js": [ "ats-detector.js" ],
+      "matches": [ "\u003Call_urls>" ],
+      "run_at": "document_idle"
+   }, {
+      "js": [ "auth-bridge.js" ],
+      "matches": [ "https://app.bidhub.tech/*" ],
+      "run_at": "document_start"
+   }, {
+      "js": [ "indeed-smartapply.js" ],
+      "matches": [ "https://*.smartapply.indeed.com/*", "https://smartapply.indeed.com/*" ]
+   }, {
+      "js": [ "indeed-autofill.js" ],
+      "matches": [ "https://*.indeed.com/beta/indeedapply*" ],
+      "run_at": "document_start"
+   }, {
+      "js": [ "indeed.js" ],
+      "matches": [ "https://*.indeed.com/*", "https://indeed.com/*" ]
+   }, {
+      "js": [ "linkedin.js" ],
+      "matches": [ "https://www.linkedin.com/jobs/search/*", "https://www.linkedin.com/jobs/collections/*" ]
+   }, {
+      "js": [ "linkedin-view.js" ],
+      "matches": [ "https://www.linkedin.com/jobs/view/*" ]
+   }, {
+      "all_frames": true,
+      "js": [ "greenhouse-old.js" ],
+      "matches": [ "https://boards.greenhouse.io/*/jobs/*", "https://boards.greenhouse.io/embed/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "greenhouse-new.js" ],
+      "matches": [ "https://job-boards.greenhouse.io/*", "https://job-boards.eu.greenhouse.io/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "greenhouse-autofill.js" ],
+      "matches": [ "https://job-boards.greenhouse.io/*", "https://job-boards.eu.greenhouse.io/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "gem.js" ],
+      "matches": [ "https://jobs.gem.com/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "gem-autofill.js" ],
+      "matches": [ "https://jobs.gem.com/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "breezy.js" ],
+      "matches": [ "https://*.breezy.hr/p/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "breezy-autofill.js" ],
+      "matches": [ "https://*.breezy.hr/p/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "jobright.js" ],
+      "matches": [ "https://*.jobright.ai/jobs/info/*" ],
+      "run_at": "document_start"
+   }, {
+      "js": [ "jobdiva-autofill.js" ],
+      "matches": [ "https://*.jobdiva.com/portal/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "dice.js" ],
+      "matches": [ "https://www.dice.com/job-detail/*", "https://www.dice.com/job-applications/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "dice-autofill.js" ],
+      "matches": [ "https://www.dice.com/job-detail/*", "https://www.dice.com/job-applications/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "lever.js" ],
+      "matches": [ "https://jobs.lever.co/*/*", "https://jobs.eu.lever.co/*/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "lever-autofill.js" ],
+      "matches": [ "https://jobs.lever.co/*/*", "https://jobs.eu.lever.co/*/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "ashbyhq.js" ],
+      "matches": [ "https://jobs.ashbyhq.com/*/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "ashbyhq-autofill.js" ],
+      "matches": [ "https://jobs.ashbyhq.com/*/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "kula.js" ],
+      "matches": [ "https://careers.kula.ai/*/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "kula-autofill.js" ],
+      "matches": [ "https://careers.kula.ai/*/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "recruiterflow.js" ],
+      "matches": [ "https://recruiterflow.com/*/jobs/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "recruiterflow-autofill.js" ],
+      "matches": [ "https://recruiterflow.com/*/jobs/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "ripplehire.js" ],
+      "matches": [ "https://*.ripplehire.com/candidate/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "ripplehire-autofill.js" ],
+      "matches": [ "https://*.ripplehire.com/candidate/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "workable.js" ],
+      "matches": [ "https://apply.workable.com/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "workable-autofill.js" ],
+      "matches": [ "https://apply.workable.com/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "icims.js", "icims-autofill.js" ],
+      "matches": [ "https://*.icims.com/jobs/*", "https://*.icims.com/forms*", "https://*.icims.com/icims2/*", "https://login.icims.com/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "workable-jobs.js" ],
+      "matches": [ "https://jobs.workable.com/view/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "workable-jobs-search.js" ],
+      "matches": [ "https://jobs.workable.com/search*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "workable-jobs-autofill.js" ],
+      "matches": [ "https://jobs.workable.com/view/*", "https://jobs.workable.com/search*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "bamboohr.js" ],
+      "matches": [ "https://*.bamboohr.com/careers/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "bamboohr-autofill.js" ],
+      "matches": [ "https://*.bamboohr.com/careers/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "careerspage.js" ],
+      "matches": [ "https://*.careers-page.com/*/job/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "careerspage-autofill.js" ],
+      "matches": [ "https://*.careers-page.com/*/job/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "dayforcehcm.js" ],
+      "matches": [ "https://*.dayforcehcm.com/*/jobs/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "dayforcehcm-autofill.js" ],
+      "matches": [ "https://*.dayforcehcm.com/*/jobs/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "dover.js" ],
+      "matches": [ "https://app.dover.io/*", "https://app.dover.com/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "dover-autofill.js" ],
+      "matches": [ "https://app.dover.io/*", "https://app.dover.com/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "eightfold.js" ],
+      "matches": [ "https://*.eightfold.ai/*", "https://apply.ukg.com/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "eightfold-autofill.js" ],
+      "matches": [ "https://*.eightfold.ai/careers*", "https://apply.ukg.com/careers*" ],
+      "run_at": "document_start"
+   }, {
+      "js": [ "jobdiva.js" ],
+      "matches": [ "https://*.jobdiva.com/portal/*" ]
+   }, {
+      "js": [ "jobvite.js" ],
+      "matches": [ "https://*.jobvite.com/*" ]
+   }, {
+      "all_frames": true,
+      "js": [ "jobvite-autofill.js" ],
+      "matches": [ "https://*.jobvite.com/*/job/*" ]
+   }, {
+      "all_frames": true,
+      "js": [ "motionrecruitment.js" ],
+      "matches": [ "https://motionrecruitment.com/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "motionrecruitment-autofill.js" ],
+      "matches": [ "https://motionrecruitment.com/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "burtchworks.js" ],
+      "matches": [ "https://jobs.burtchworks.com/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "burtchworks-autofill.js" ],
+      "matches": [ "https://jobs.burtchworks.com/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "globaltriangles.js", "globaltriangles-autofill.js" ],
+      "matches": [ "https://www.globaltriangles.com/vacancies/*", "https://globaltriangles.com/vacancies/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "ultipro.js" ],
+      "matches": [ "https://*.ultipro.com/*/JobBoard/*/OpportunityDetail*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "ultipro-autofill.js" ],
+      "matches": [ "https://*.ultipro.com/*/JobBoard/*/OpportunityDetail*", "https://*.ultipro.com/*/JobBoard/*/OpportunityApply*", "https://*.ultipro.com/*/Account/*", "https://*.ultipro.com/*/AuthCode/*", "https://*.ultipro.com/u/*", "https://*.ultipro.com/ui/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "myworkdayjobs.js" ],
+      "matches": [ "https://*.myworkdayjobs.com/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "myworkdayjobs-autofill.js" ],
+      "matches": [ "https://*.myworkdayjobs.com/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "oraclecloud.js" ],
+      "matches": [ "https://*.oraclecloud.com/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "oraclecloud-autofill.js" ],
+      "matches": [ "https://*.oraclecloud.com/hcmUI/CandidateExperience/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "paylocity.js" ],
+      "matches": [ "https://recruiting.paylocity.com/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "paylocity-autofill.js" ],
+      "matches": [ "https://recruiting.paylocity.com/Recruiting/Jobs/*", "https://recruiting.paylocity.com/Recruiting/jobs/*", "https://recruiting.paylocity.com/recruiting/jobs/*", "https://recruiting.paylocity.com/recruiting/Jobs/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "paycom.js" ],
+      "matches": [ "https://*.paycomonline.net/v4/ats/*", "https://*.paycomonline.com/v4/ats/*" ]
+   }, {
+      "all_frames": true,
+      "js": [ "paycom-autofill.js" ],
+      "matches": [ "https://*.paycomonline.net/v4/ats/*", "https://*.paycomonline.com/v4/ats/*" ]
+   }, {
+      "js": [ "hackajob.js" ],
+      "matches": [ "https://hackajob.com/job/*", "https://hackajob.com/en-us/job/*", "https://hackajob.com/talent/apply*", "https://hackajob.com/en-us/talent/apply*" ]
+   }, {
+      "js": [ "hackajob-autofill.js" ],
+      "matches": [ "https://hackajob.com/job/*", "https://hackajob.com/en-us/job/*", "https://user.hackajob.com/*" ]
+   }, {
+      "all_frames": true,
+      "js": [ "rippling.js" ],
+      "matches": [ "https://*.rippling.com/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "rippling-autofill.js" ],
+      "matches": [ "https://*.rippling.com/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "freshteam.js" ],
+      "matches": [ "https://*.freshteam.com/jobs/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "freshteam-autofill.js" ],
+      "matches": [ "https://*.freshteam.com/jobs/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "smartrecruiters.js" ],
+      "matches": [ "https://*.smartrecruiters.com/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "smartrecruiters-autofill.js" ],
+      "matches": [ "https://*.smartrecruiters.com/*", "https://*.smartr.me/oneclick-ui/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "zohorecruit.js" ],
+      "matches": [ "https://*.zohorecruit.com/jobs/careers/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "zohorecruit-autofill.js" ],
+      "matches": [ "https://*.zohorecruit.com/jobs/careers/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "ziprecruiter.js" ],
+      "matches": [ "https://www.ziprecruiter.com/jobs-search*", "https://www.ziprecruiter.com/jobs/*", "https://www.ziprecruiter.com/jobseeker/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "ziprecruiter-autofill.js" ],
+      "matches": [ "https://www.ziprecruiter.com/jobs-search*", "https://www.ziprecruiter.com/jobs/*", "https://www.ziprecruiter.com/jobseeker/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "builtin.js" ],
+      "matches": [ "https://builtin.com/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "builtin-autofill.js" ],
+      "matches": [ "https://builtin.com/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "applytojob.js" ],
+      "matches": [ "https://*.applytojob.com/apply/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "applytojob-autofill.js" ],
+      "matches": [ "https://*.applytojob.com/apply/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "careerplug.js" ],
+      "matches": [ "https://*.careerplug.com/jobs/*/apps/new*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "careerplug-autofill.js" ],
+      "matches": [ "https://*.careerplug.com/jobs/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "gethired.js", "gethired-autofill.js" ],
+      "matches": [ "https://*.easyapply.co/*", "https://*.gethired.com/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "puffy.js", "puffy-autofill.js" ],
+      "matches": [ "https://careers.puffy.com/*", "https://join.careers.puffy.com/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "creatio.js", "creatio-autofill.js" ],
+      "matches": [ "https://www.creatio.com/company/careers/job-openings/*", "https://creatio.com/company/careers/job-openings/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "teamtailor.js" ],
+      "matches": [ "https://*.teamtailor.com/jobs/*", "https://*.teamtailor.com/*/jobs/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "teamtailor-autofill.js" ],
+      "matches": [ "https://*.teamtailor.com/jobs/*", "https://*.teamtailor.com/*/jobs/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "gusto-autofill.js", "gusto.js" ],
+      "matches": [ "https://jobs.gusto.com/postings/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "avature.js", "avature-autofill.js" ],
+      "matches": [ "https://*.avature.net/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "pinpointhq.js" ],
+      "matches": [ "https://*.pinpointhq.com/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "pinpointhq-autofill.js" ],
+      "matches": [ "https://*.pinpointhq.com/*postings/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "hiringthing.js" ],
+      "matches": [ "https://*.hiringthing.com/job/*", "https://*.alphastaff-hiring.com/job/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "hiringthing-autofill.js" ],
+      "matches": [ "https://*.hiringthing.com/job/*", "https://*.hiringthing.com/jobs/eop_survey/*", "https://*.alphastaff-hiring.com/job/*", "https://*.alphastaff-hiring.com/jobs/eop_survey/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "trinethire.js", "trinethire-autofill.js" ],
+      "matches": [ "https://app.trinethire.com/companies/*/jobs/*" ],
+      "run_at": "document_start"
+   }, {
+      "js": [ "comeet.js" ],
+      "matches": [ "https://*.comeet.com/jobs/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "comeet-autofill.js" ],
+      "matches": [ "https://*.comeet.com/jobs/*", "https://*.comeet.co/*" ],
+      "run_at": "document_start"
+   }, {
+      "js": [ "recruitee.js" ],
+      "matches": [ "https://*.recruitee.com/o/*", "https://*.recruitee.com/l/*/o/*" ],
+      "run_at": "document_start"
+   }, {
+      "js": [ "recruitee-autofill.js" ],
+      "matches": [ "https://*.recruitee.com/o/*", "https://*.recruitee.com/l/*/o/*" ],
+      "run_at": "document_start"
+   }, {
+      "js": [ "epam.js" ],
+      "matches": [ "https://careers.epam.com/*/vacancy/*" ],
+      "run_at": "document_start"
+   }, {
+      "js": [ "epam-autofill.js" ],
+      "matches": [ "https://careers.epam.com/*/vacancy/*" ],
+      "run_at": "document_start"
+   }, {
+      "js": [ "cursor.js", "cursor-autofill.js" ],
+      "matches": [ "https://cursor.com/careers/*", "https://cursor.com/*/careers/*", "https://www.cursor.com/careers/*" ],
+      "run_at": "document_start"
+   }, {
+      "js": [ "personio.js" ],
+      "matches": [ "https://*.jobs.personio.com/job/*", "https://*.jobs.personio.de/job/*" ],
+      "run_at": "document_start"
+   }, {
+      "js": [ "personio-autofill.js" ],
+      "matches": [ "https://*.jobs.personio.com/job/*", "https://*.jobs.personio.de/job/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "clarkassociates.js" ],
+      "matches": [ "https://careers.clarkassociatesinc.biz/careerdetail/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "clarkassociates-autofill.js" ],
+      "matches": [ "https://careers.clarkassociatesinc.biz/careerdetail/*", "https://careers.clarkassociatesinc.biz/application/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "boostie.js" ],
+      "matches": [ "https://*.boostie.jobs/*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "boostie-autofill.js" ],
+      "matches": [ "https://*.boostie.jobs/*" ],
+      "run_at": "document_start"
+   } ],
+   "description": "AI job application assistant. Autofill applications, tailor your resume & cover letter, AI Q&A, and collaboration workspace.",
+   "externally_connectable": {
+      "matches": [ "https://app.bidhub.tech/*" ]
+   },
+   "host_permissions": [ "\u003Call_urls>" ],
+   "icons": {
+      "128": "assets/images/icon-128.png",
+      "16": "assets/images/icon-16.png",
+      "48": "assets/images/icon-48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA4ce89FeerQMB403Zi4Ezqn0Evkx/AIp/BCe7o7LKn7KArsJL9mIiK4JvpUhSe4hIlOS2bjTFPLemZl80LzxcMszIqinsY7OjTayY5EDQWzomyeFDsXebUf2mS5k0QVc74yAn30OnfoaFlwEvNh26M78yCaLEGaf2bfBVzmCs3vdm5q9WjQOg7a9Gzgngo8gSoa41baIl8UXLHhV0ywSvySKfJ+8krdUrGnY1xdZGJG5Cm9RTCHuELKnEOweubX7S0AtFSyWqaAVZDPZoa9kJT6Dlkb4PCOpLfJMS65Oos0rAzJr+tdpqHNyYFXYvxE+Atk/Pona1ZohTY8JHDRPaewIDAQAB",
+   "manifest_version": 3,
+   "name": "BidHub Copilot",
+   "permissions": [ "storage", "tabs", "webNavigation", "webRequest", "contextMenus", "clipboardWrite", "activeTab", "scripting", "downloads", "alarms", "proxy", "webRequestAuthProvider", "declarativeNetRequestWithHostAccess" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "3.4.1",
+   "web_accessible_resources": [ {
+      "matches": [ "\u003Call_urls>" ],
+      "resources": [ "assets/**" ]
+   } ]
+}
